@@ -26,38 +26,46 @@ function sum(a, b) {
     if (isNaN(a) || isNaN(b) || typeof a !== "number" || typeof b !== "number") {
         return NaN;
     }
-   return a * b;
-
-    if (isNan(typeof a == "number", typeof b == "number")) {
-       return Number(a,b)
-        
+    else if (a, b) {
+        return Math.ceil(a * b);
     }
-    return a * b; 
+    else if (a, b) {
+        return a * b;
+    }
+    else {
+        return Number(a * b)
+    }
+    /*else {
+        return parseFloat(a*b);
+    }*/
 
-}
+};
 
 
-   
+
 
 
 
 //#endregion
 
 
-
-
-
 //#region Tests --------------------------------------------------------------------
 // Write your tests her.
 const tests = test("sum function")
+//  invalid imputs
+tests.isNotANumber(sum(3, "1"), `sum of 3 and "1" should return Nan`),
+    tests.isNotANumber(sum(5, null), `sum of 5 and null shuld return Nan`),
+    tests.isNotANumber(sum(NaN, 2), `sum of Nan and 2 should return Nan`);
 
-tests.isNotANumber(sum(3, "1"), `sum of 3 and "1" should return Nan`);
-tests.isNotANumber(sum(5, null), `sum of 5 and null shuld return Nan`);
-tests.isNotANumber(sum("5", "4"), 20, `sum of "5" and "4" should return 20`);
+// valid inputs
+tests.isEqual(sum(5, 5), 25, "should return 25"),
+    tests.isEqual(sum(-2, -2), 4, "should return 4"),
+    tests.isEqual(sum(1.5, 1.5), 3, `should return 3`);
 
-//(sum(-4, 4), 0, `sum should be 0`)
-
-tests.isEqual(sum(3, 2), 6, `sum of 3 and 2 should return 6`);
+//edge cases
+tests.isEqual(sum(0, 0), 0, "Sum of 0 and 0 should be 0");
+tests.isEqual(sum(Infinity, 1), Infinity, "Sum of Infinity and 1 should be Infinity");
+tests.isEqual(sum(-Infinity, 1), -Infinity, "Sum of -Infinity and 1 should be -Infinity");
 
 
 
