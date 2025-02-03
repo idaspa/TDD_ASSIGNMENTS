@@ -1,5 +1,6 @@
 import test from "./test.mjs";
 
+
 /*
     Challenge: Implement the `multiply` function.
 
@@ -20,13 +21,24 @@ import test from "./test.mjs";
 //#region function -----------------------------------------------------------------
 // Write your function her.
 
-function sum(...theArgs) {
-    let total = 0;
-    for (const arg of theArgs) {
-      total += arg;
+
+function sum(a, b) {
+    if (isNaN(a) || isNaN(b) || typeof a !== "number" || typeof b !== "number") {
+        return NaN;
     }
-    return total;
-  }
+   return a * b;
+
+    if (isNan(typeof a == "number", typeof b == "number")) {
+       return Number(a,b)
+        
+    }
+    return a * b; 
+
+}
+
+
+   
+
 
 
 //#endregion
@@ -37,6 +49,15 @@ function sum(...theArgs) {
 
 //#region Tests --------------------------------------------------------------------
 // Write your tests her.
+const tests = test("sum function")
+
+tests.isNotANumber(sum(3, "1"), `sum of 3 and "1" should return Nan`);
+tests.isNotANumber(sum(5, null), `sum of 5 and null shuld return Nan`);
+tests.isNotANumber(sum("5", "4"), 20, `sum of "5" and "4" should return 20`);
+
+//(sum(-4, 4), 0, `sum should be 0`)
+
+tests.isEqual(sum(3, 2), 6, `sum of 3 and 2 should return 6`);
 
 
 
