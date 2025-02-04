@@ -23,13 +23,15 @@ import test from "./test.mjs";
 
 
 function sum(a, b) {
+
+     
     if (isNaN(a) || isNaN(b) || typeof a !== "number" || typeof b !== "number") {
         return NaN;
     }
-    else if (a, b) {
+    else if (a && b) {
         return Math.ceil(a * b);
     }
-    else if (a, b) {
+    else if (a && b) {
         return a * b;
     }
     else {
@@ -40,10 +42,6 @@ function sum(a, b) {
     }*/
 
 };
-
-
-
-
 
 
 //#endregion
