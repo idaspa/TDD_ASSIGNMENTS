@@ -19,35 +19,32 @@ import test from "./test.mjs";
 
 //#region function -----------------------------------------------------------------
 // Write your function her.
-const specialCharacters = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
 
 function formatName(name) {
 
-    if (typeof name !== "string") {
+    if (typeof name !== "string") {             // if the type of name is not equal to "string" return =;
         return null;
     }
 
-    for (let i = 0; i < specialCharacters.length; i++) { // goes through and checks the string for special-char 
-        if (name.includes(specialCharacters[i]) > -1) {     //does  name include spec-char more than 0?
-            return null;                                    // if it is true(contains more than 0 spec-char) then return null.
+    let specialCharacters = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
+    for (let i = 0; i < specialCharacters.length; i++) {           // goes through and checks the string for special-char 
+        if (name.includes(specialCharacters[i])) {           //does  name include spec-char more than 0?        
+            return null;                                         // if it is true(contains more than 0 spec-char) then return null.
         }
     }
-
+    const nameToTrim = name.trim();
+    if (nameToTrim === "") {    // if the name does not include "text" 
+        return "";                //return empty string
+    }
+    return nameToTrim
+        .split(/\s+/)
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(" ");
+// this splits the name, removes whitespace,gives lowercase before giving first of each word uppercase 
+//then brings the sentence back together.
 }
 
-
-
-
-
-
-
-
-
-
-
 //#endregion
-
-
 
 
 
@@ -55,14 +52,15 @@ function formatName(name) {
 // Write your tests her.
 const tests = test("formatName");
 
-tests.isEqual(formatName(13), null, "Since 13 is not a string it should now return null");
+tests.isEqual(formatName([1]), null, " The array should now return null");
+tests.isEqual(formatName(13), null, " Since 13 is not a string it should now return null");
 tests.isEqual(formatName("j¤ne d!o"), null, " A string that includes special characters should now return null");
 tests.isEqual(formatName("jane d%e"), null, " A string that includes special characters should now return null");
 
-tests.isEqual(formatName("Jane doe"), "Jane Doe", " `Jane doe should now return `Jane Doe` ");
+tests.isEqual(formatName("Jane doe"), "Jane Doe", " Jane doe should now return Jane Doe");
+tests.isEqual(formatName("jane Doe"), "Jane Doe", " jane Doe should now return Jane Doe");
 
-tests.isEqual(formatName("  jane  doe  "), "jane doe", "`  jane  doe  `, Should now return `jane doe`");
+tests.isEqual(formatName(" jane  doe "), "Jane Doe", " ` jane  doe `, Should now return Jane Doe");
+tests.isEqual(formatName(""), "", " The empty string should now return an empty string ");
 
-tests.isEqual(formatName(""), "", " The empty string will now return an empty string ");
-//tests.isEqual(formatName("John doe"),`John Doe`, " the name `John doe`, should now be `John Doe` after formatting"); 
 //#endregion
