@@ -11,6 +11,15 @@ import test from "./test.mjs";
 */
 
 function sequence(n) {
+    if (typeof n == "Number") {
+        return null;
+    }
+    if(n == !Number.isInteger(n)){
+        return null;
+    }
+    else if (n < 0){
+        return null;
+    }
 
 }
 

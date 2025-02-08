@@ -1,46 +1,39 @@
 import test from "./test.mjs";
 
-/*
-    Challenge: Implement the `guessNumber` function.
 
-    The function `guessNumber` takes two parameters:
-    1. `target` (an integer) - the number to guess.
-    2. `guess` (an integer) - the player's guess.
-
-    The function should:
-    - Return "Too low" if the guess is less than the target.
-    - Return "Too high" if the guess is greater than the target.
-    - Return "Correct!" if the guess matches the target.
-    - Return null if either input is not a valid integer.
-
-    Your task:
-    1. Complete the tests below to verify the functionality.
-    2. Implement the `guessNumber` function so it passes all the tests.
-
-    
-*/
-
-//#region function -----------------------------------------------------------------
-// Write your function her.
 
 function guessNumber(target, guess) {
+    if (typeof target !== "number" || typeof guess !== "number") { 
+        return null;
+    }
+    if (!Number.isInteger(target) || !Number.isInteger(guess)) { 
+        return null;
+    }
+    if (guess > target) {
+        return "Too high";
+    }
+    if (guess < target) {
+        return "Too low";
+    }
+    else if (guess === target) {
+        return "Correct!";
+    }
 
 }
 
 
-//#endregion
+const tests = test(guessNumber);
 
-//#region Tests --------------------------------------------------------------------
+tests.isEqual(guessNumber(10, 5), "Too low", "If target is 10 and guess is 5, return 'Too low.'");
+tests.isEqual(guessNumber(10, 15), "Too high", "If target is 10 and guess is 15, return 'Too high.'");
+tests.isEqual(guessNumber(10, 10), "Correct!", "If target is 10 and guess is 10, return 'Correct!'");
 
-// Basic cases
-test.isEqual(guessNumber(10, 5), "Too low", "If target is 10 and guess is 5, return 'Too low'");
-test.isEqual(guessNumber(10, 15), "Too high", "If target is 10 and guess is 15, return 'Too high'");
-test.isEqual(guessNumber(10, 10), "Correct!", "If target is 10 and guess is 10, return 'Correct!'");
+tests.isEqual(guessNumber(6, "6"), null, "If the guess is in a string return null.");
+tests.isEqual(guessNumber(3, 4.2), null, "if a guess is not a integer number return null.");
+tests.isEqual(guessNumber(9, null), null, " if guess is not a number it should return null")
 
-// Invalid inputs
-
-
-// Edge cases
+tests.isEqual(guessNumber(-8, -8), "Correct!", "if target is -8 and guess is -8 it should retun correct");
+tests.isEqual(guessNumber(-20, 15), "Too high", "if guess is higher than target it should return too high");
+tests.isEqual(guessNumber(10, -10), "Too low", "If guess is lower than target it should return too low");
 
 
-//#endregion
