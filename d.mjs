@@ -21,7 +21,6 @@ function guessNumber(target, guess) {
 
 }
 
-
 const tests = test("guessNumber");
 
 tests.isEqual(guessNumber(10, 5), "Too low", "If target is 10 and guess is 5, return 'Too low.'");

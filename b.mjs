@@ -17,7 +17,7 @@ function formatName(name) {
     const nameToTrim = name.trim();
     let emptyString = "";
 
-    
+
     if (nameToTrim === emptyString) {
         return emptyString;
     }
@@ -40,4 +40,4 @@ tests.isEqual(formatName("jane d%e"), null, " A string that includes special cha
 
 tests.isEqual(formatName(" jane  doe "), "Jane Doe", " jane  doe Should now return Jane Doe");
 tests.isEqual(formatName(""), "", " The empty string should now return an empty string ");
-tests.isEqual(formatName("jane      doe"), "Jane Doe", "jane     doe sjould now return Jane Doe")
+tests.isEqual(formatName("jane      doe"), "Jane Doe", "jane     doe sjould now return Jane Doe");
