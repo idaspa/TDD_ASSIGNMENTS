@@ -5,10 +5,11 @@ function sequence(n) {
     if (typeof n !== "Number") {
         return null;
     }
-    if (n == !Number.isInteger(n)) {
+    else if (n == !Number.isInteger(n)) {
         return null;
     }
-    else if (n === null) {
+    else {
+        (n === null)
         return null;
     }
 
