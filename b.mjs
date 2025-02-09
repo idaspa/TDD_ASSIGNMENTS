@@ -2,7 +2,6 @@ import test from "./test.mjs";
 
 
 function formatName(name) {
-
     if (typeof name !== "string") {
         return null;
     }
@@ -13,7 +12,7 @@ function formatName(name) {
             return null;
         }
     }
-    
+
     const nameToTrim = name.trim();
     let emptyString = "";
 
