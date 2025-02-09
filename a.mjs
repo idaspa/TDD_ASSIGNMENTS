@@ -19,7 +19,6 @@ function sum(a, b) {
 
 }
 
-
 const tests = test("sum function")
 
 tests.isEqual(sum(5, 5), 25, "Sum Of 5,5 Should return 25");
