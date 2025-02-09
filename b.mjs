@@ -6,16 +6,20 @@ function formatName(name) {
     if (typeof name !== "string") {
         return null;
     }
+    const specialCharacters = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
 
-    let specialCharacters = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
     for (let i = 0; i < specialCharacters.length; i++) {
         if (name.includes(specialCharacters[i])) {
             return null;
         }
     }
+    
     const nameToTrim = name.trim();
-    if (nameToTrim === "") {
-        return "";
+    let emptyString = "";
+
+    
+    if (nameToTrim === emptyString) {
+        return emptyString;
     }
     return nameToTrim
         .split(/\s+/)

@@ -1,23 +1,16 @@
 import test from "./test.mjs";
 
-/*
-    Challenge: Implement the `sequence` function.
-
-    Your task:
-    1. Write a function `sequence` that passes the tests below.
-    2. The function should handle various edge cases, including invalid inputs.
-
-    Good luck!
-*/
 
 function sequence(n) {
-    if (typeof n == "Number") {
+    
+    
+    if (typeof n !== "Number") {
         return null;
     }
     if(n == !Number.isInteger(n)){
         return null;
     }
-    else if (n < 0){
+    else if (n === null){
         return null;
     }
 
