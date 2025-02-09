@@ -9,17 +9,17 @@ function guessNumber(target, guess) {
     if (!Number.isInteger(target) || !Number.isInteger(guess)) { 
         return null;
     }
-    if (guess > target) {
+    else if (guess > target) {
         return "Too high";
     }
-    if (guess < target) {
+   else  if (guess < target) {
         return "Too low";
     }
-    else if (guess === target) {
+    else (guess === target) 
         return "Correct!";
     }
 
-}
+
 
 const tests = test("guessNumber");
 
