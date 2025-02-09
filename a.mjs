@@ -2,8 +2,6 @@ import test from "./test.mjs";
 
 
 function sum(a, b) {
-
-
     if (isNaN(a) || isNaN(b) || typeof a !== "number" || typeof b !== "number") {
         return NaN;
     }
