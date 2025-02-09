@@ -16,7 +16,7 @@ function sequence(n) {
 
 }
 
-//#region Tests --------------------------------------------------------------------
+//#region Tests -----
 const tests = test("Sum function");
 
 // Basic cases
