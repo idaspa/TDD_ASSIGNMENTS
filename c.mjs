@@ -1,19 +1,21 @@
 import test from "./test.mjs";
 
-
 function sequence(n) {
-    if (typeof n !== "Number") {
+
+    if (!Number.isInteger(n) || typeof n == "string") {
         return null;
     }
-    else if (n == !Number.isInteger(n)) {
+    if (n < 0) {
         return null;
     }
-    else {
-        (n === null)
-        return null;
+    else if (n < 2) {
+        return n;
     }
 
+    return sequence(n - 1) + sequence(n - 2)
 }
+
+
 
 //#region Tests -----
 const tests = test("Sum function");
